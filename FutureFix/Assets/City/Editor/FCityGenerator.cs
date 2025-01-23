@@ -15,7 +15,7 @@ public class FCityGenerator : EditorWindow
     private bool intenseTraffic = false;
 
 
-    [MenuItem("Window/Fantastic City Generator")]
+    [MenuItem("Window/City")]
     static void Init()
     {
 
@@ -33,47 +33,47 @@ public class FCityGenerator : EditorWindow
         string[] s;
 
         //BB - Street buildings in suburban areas (not in the corner)
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/BB", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/BB", "*.prefab");
         if (cityGenerator.BB.Length != s.Length)
             cityGenerator.BB = LoadAssets_sub(s);
 
         //BC - Down Town Buildings(Not in the corner)
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/BC", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/BC", "*.prefab");
         if (cityGenerator.BC.Length != s.Length)
             cityGenerator.BC = LoadAssets_sub(s);
 
         //BK - Buildings that occupy an entire block
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/BK", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/BK", "*.prefab");
         if (cityGenerator.BK.Length != s.Length)
             cityGenerator.BK = LoadAssets_sub(s);
 
         //BR - Residential buildings in suburban areas (not in the corner)
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/BR", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/BR", "*.prefab");
         if (cityGenerator.BR.Length != s.Length)
             cityGenerator.BR = LoadAssets_sub(s);
 
         //DC - Corner buildings that occupy both sides of the block
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/DC", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/DC", "*.prefab");
         if (cityGenerator.DC.Length != s.Length)
             cityGenerator.DC = LoadAssets_sub(s);
 
         //EB - Corner buildings in suburban areas
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/EB", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/EB", "*.prefab");
         if (cityGenerator.EB.Length != s.Length)
             cityGenerator.EB = LoadAssets_sub(s);
 
         //EC - Down Town Corner Buildings 
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/EC", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/EC", "*.prefab");
         if (cityGenerator.EC.Length != s.Length)
             cityGenerator.EC = LoadAssets_sub(s);
 
         //MB - Buildings that occupy both sides of the block
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/MB", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/MB", "*.prefab");
         if (cityGenerator.MB.Length != s.Length)
             cityGenerator.MB = LoadAssets_sub(s);
 
         //SB - Large buildings that occupy larger blocks
-        s = System.IO.Directory.GetFiles("Assets/Fantastic City Generator/Buildings/Prefabs/SB", "*.prefab");
+        s = System.IO.Directory.GetFiles("Assets/City/Buildings/Prefabs/SB", "*.prefab");
         if (cityGenerator.SB.Length != s.Length)
             cityGenerator.SB = LoadAssets_sub(s);
 
@@ -132,7 +132,7 @@ public class FCityGenerator : EditorWindow
 
         //cityGenerator = EditorGUILayout.ObjectField(cityGenerator, typeof(CityGenerator), true) as CityGenerator ;
         if (!cityGenerator)
-            cityGenerator = AssetDatabase.LoadAssetAtPath("Assets/Fantastic City Generator/Generate.prefab", (typeof(CityGenerator))) as CityGenerator;
+            cityGenerator = AssetDatabase.LoadAssetAtPath("Assets/City/Generate.prefab", (typeof(CityGenerator))) as CityGenerator;
 
         LoadAssets();
 
@@ -424,7 +424,7 @@ public class FCityGenerator : EditorWindow
         if (GameObject.Find("RoadMark") && GameObject.Find("RoadMarkRev"))
             InverseCarDirection(true);
 
-        TrafficSystem trafficSystem = AssetDatabase.LoadAssetAtPath("Assets/Fantastic City Generator/Traffic System/Traffic System.prefab", (typeof(TrafficSystem))) as TrafficSystem;
+        TrafficSystem trafficSystem = AssetDatabase.LoadAssetAtPath("Assets/City/Traffic System/Traffic System.prefab", (typeof(TrafficSystem))) as TrafficSystem;
         trafficSystem.LoadCars(additionalCars);
     }
 
