@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+
 
 public class MobileControl : MonoBehaviour, IDragHandler , IPointerUpHandler, IPointerDownHandler
 {
@@ -75,7 +77,7 @@ public class MobileControl : MonoBehaviour, IDragHandler , IPointerUpHandler, IP
         Vector3 forwardMovement = player.transform.forward * md2.x;
         Vector3 rightMovement = player.transform.right * md2.y;
 
-        charController.SimpleMove(Vector3.ClampMagnitude(forwardMovement + rightMovement, 1.0f) * (Input.GetKey(KeyCode.LeftShift) ? speed * 2: speed));
+        charController.SimpleMove(Vector3.ClampMagnitude(forwardMovement + rightMovement, 1.0f) * (Keyboard.current.leftShiftKey.isPressed ? speed * 2: speed));
 
     }
 
