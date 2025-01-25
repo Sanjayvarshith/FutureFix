@@ -3,6 +3,8 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+
 
 
 #pragma warning disable 0618 // Disabled warning due to SetVertices being deprecated until new release with SetMesh() is available.
@@ -93,7 +95,7 @@ namespace TMPro.Examples
                     m_lastIndex = -1;
                 }
 
-                if (charIndex != -1 && charIndex != m_lastIndex && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+                if (charIndex != -1 && charIndex != m_lastIndex && (Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed))
                 {
                     m_lastIndex = charIndex;
 
@@ -203,7 +205,7 @@ namespace TMPro.Examples
 
 
                 // Word Selection Handling
-                if (wordIndex != -1 && wordIndex != m_selectedWord && !(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+                if (wordIndex != -1 && wordIndex != m_selectedWord && !(Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed))
                 {
                     m_selectedWord = wordIndex;
 
