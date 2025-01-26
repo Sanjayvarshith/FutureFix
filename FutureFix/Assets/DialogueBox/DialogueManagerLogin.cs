@@ -139,7 +139,7 @@ public class DialogueManagerLogin : MonoBehaviour {
                 miniMapCamera.gameObject.SetActive(true);
             }
         }
-		if(playerPosition.x < 59.29271 && playerPosition.x > 50.29271 && playerPosition.z < -0.960452  && playerPosition.z >-6.960452 )
+		if(playerPosition.x < 59.29271 && playerPosition.x > 40.29271 && playerPosition.z < -0.060452  && playerPosition.z >-6.960452 )
 		{
 			//    GameObject ambulance = GameObject.Find("Ambulance_no_damage");
 			ambulance.gameObject.SetActive(true);
