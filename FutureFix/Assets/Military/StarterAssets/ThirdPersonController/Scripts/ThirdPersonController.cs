@@ -163,6 +163,7 @@ namespace StarterAssets
         }
         public GameObject test;
         public GameObject test2;
+         public GameObject test4;
         public void checkPosition()
         {
             if (transform.position.x < 130 && transform.position.x>107 && transform.position.z <-7 && transform.position.z > -60)
@@ -183,6 +184,15 @@ namespace StarterAssets
             else
             {
                 test2.SetActive(false);
+            }
+            // 54.29271 y:0.08999979 z:-3.960452 
+             if(transform.position.x < 59.29271 && transform.position.x > 50.29271 && transform.position.z < -0.960452  && transform.position.z >-6.960452 )
+            {
+                test4.SetActive(true);
+            }
+            else
+            {
+                test4.SetActive(false);
             }
         }
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueManagerLogin : MonoBehaviour {
 
 	public GameObject player;
+	public GameObject ambulance;
 	public Text nameText;
 	public Text dialogueText;
 
@@ -119,8 +120,15 @@ public class DialogueManagerLogin : MonoBehaviour {
                 miniMapCamera.gameObject.SetActive(true);
             }
         }
+		if(playerPosition.x < 59.29271 && playerPosition.x > 50.29271 && playerPosition.z < -0.960452  && playerPosition.z >-6.960452 )
+		{
+			//    GameObject ambulance = GameObject.Find("Ambulance_no_damage");
+			ambulance.gameObject.SetActive(true);
 		// dialogueBoxsuccess.SetActive(true);
 		animatorsuccess.SetBool("IsOpen", true);
+	}
+	animatorsuccess.SetBool("IsOpen", true);
+	// dialogueBoxsuccess.SetActive(true);
 	}
 
 	public void Fail()
@@ -138,3 +146,4 @@ public class DialogueManagerLogin : MonoBehaviour {
 	}
 
 }
+
