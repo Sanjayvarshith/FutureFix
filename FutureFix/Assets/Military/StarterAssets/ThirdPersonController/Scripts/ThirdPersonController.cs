@@ -159,6 +159,31 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            checkPosition();
+        }
+        public GameObject test;
+        public GameObject test2;
+        public void checkPosition()
+        {
+            if (transform.position.x < 130 && transform.position.x>107 && transform.position.z <-7 && transform.position.z > -60)
+            {
+                test.SetActive(true);
+            }
+            else
+            {
+                test.SetActive(false);
+            }
+            // z=27.85155
+            // y=0.2433592
+            // x=-4.552626
+            if(transform.position.x < -0.552626 && transform.position.x > -10.552626 && transform.position.z > 23.85155 && transform.position.z <33.85155)
+            {
+                test2.SetActive(true);
+            }
+            else
+            {
+                test2.SetActive(false);
+            }
         }
 
         private void LateUpdate()

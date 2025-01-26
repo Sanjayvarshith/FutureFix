@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManagerLogin : MonoBehaviour {
 
+	public GameObject player;
 	public Text nameText;
 	public Text dialogueText;
 
@@ -12,23 +13,48 @@ public class DialogueManagerLogin : MonoBehaviour {
 	public Animator animatorfail;
 	public Animator animatorsuccess;
 
+	public GameObject canvas;
+	 public Camera miniMapCamera; 
+    public Camera fullScreenMapCamera;
+
+	public GameObject test;
+
 	private Queue<string> sentences;
 
 	// Use this for initialization
 	void Start () {
 		sentences = new Queue<string>();
 	}
+	public Dialogue dialogue2;
 
 	public void StartDialogue (Dialogue dialogue)
 	{
 
 		animator.SetBool("IsOpen", true);
+		test.SetActive(false);
 
 		nameText.text = dialogue.name;
 
 		sentences.Clear();
 
 		foreach (string sentence in dialogue.sentences)
+		{
+			sentences.Enqueue(sentence);
+		}
+
+		DisplayNextSentence();
+	}
+
+	public void newDialogue ()
+	{
+		animator.SetBool("IsOpen", true);
+		test.SetActive(false);
+
+		nameText.text = dialogue2.name;
+
+		sentences.Clear();
+
+		foreach (string sentence in dialogue2.sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
@@ -74,7 +100,25 @@ public class DialogueManagerLogin : MonoBehaviour {
 
 	public void EndDialogueSuccess()
 	{
+		Vector3 playerPosition = player.transform.position;
 		animator.SetBool("IsOpen", false);
+		 if (playerPosition.x < -0.552626 && playerPosition.x > -10.552626 && playerPosition.z > 23.85155 && playerPosition.z < 33.85155)
+        {
+            if (miniMapCamera.gameObject.activeSelf)
+            {
+                // Switch to fullscreen map
+                miniMapCamera.gameObject.SetActive(false);
+                fullScreenMapCamera.gameObject.SetActive(true);
+				canvas.SetActive(false);
+				return;
+            }
+            else
+            {
+                // Switch back to minimap
+                fullScreenMapCamera.gameObject.SetActive(false);
+                miniMapCamera.gameObject.SetActive(true);
+            }
+        }
 		// dialogueBoxsuccess.SetActive(true);
 		animatorsuccess.SetBool("IsOpen", true);
 	}
@@ -83,12 +127,14 @@ public class DialogueManagerLogin : MonoBehaviour {
 	{
 		animatorfail.SetBool("IsOpen", false);
 		animatorsuccess.SetBool("IsOpen", false);
+		test.SetActive(true);
 	}
 
 	public void Success()
 	{
 		animatorfail.SetBool("IsOpen", false);
 		animatorsuccess.SetBool("IsOpen", false);
+		canvas.SetActive(false);
 	}
 
 }
