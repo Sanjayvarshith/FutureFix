@@ -107,7 +107,7 @@ public class WeatherManager : MonoBehaviour
 
         // Wait for 5 seconds to check if the button was clicked
         float timer = 0f;
-        while (timer < 8f)
+        while (timer < 120f)
         {
             if (continueClicked)
             {
