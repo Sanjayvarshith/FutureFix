@@ -63,6 +63,25 @@ public class DialogueManagerLogin : MonoBehaviour {
 		DisplayNextSentence();
 	}
 
+	public void newDialogue2 ()
+	{
+		animator.SetBool("IsOpen", true);
+		animatorsuccess.SetBool("IsOpen", false);
+		animatorfail.SetBool("IsOpen", false);
+		test.SetActive(false);
+
+		nameText.text = dialogue2.name;
+
+		sentences.Clear();
+
+		foreach (string sentence in dialogue2.sentences)
+		{
+			sentences.Enqueue(sentence);
+		}
+
+		DisplayNextSentence();
+	}
+
 	public void DisplayNextSentence ()
 	{
 		if (sentences.Count == 0)

@@ -27,7 +27,7 @@ public class WeatherManager : MonoBehaviour
     public Button continueButton; // Button that continues to the weather panel
     public GameObject weatherPanel; // The panel that shows the weather data
 
-    private string apiKey = "951f8578925e987695d3c37358a4401f";  // Replace with actual API key
+    private string apiKey = "0995783e5bb11fde67aa050f83ac765c";  // Replace with actual API key
     private string location = "Tirupati";    // Replace with desired location
     private string apiUrl = "https://api.weatherstack.com/current?access_key={0}&query={1}";
 
