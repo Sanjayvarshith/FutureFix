@@ -162,7 +162,7 @@ namespace StarterAssets
             checkPosition();
         }
         public GameObject test;
-        public GameObject testSuper;
+        public GameObject test2;
         public void checkPosition()
         {
             if (transform.position.x < 130 && transform.position.x>107 && transform.position.z <-7 && transform.position.z > -60)
@@ -173,13 +173,16 @@ namespace StarterAssets
             {
                 test.SetActive(false);
             }
-             if (transform.position.x < -105 && transform.position.x>-118 && transform.position.z <15 && transform.position.z > 7 )
+            // z=27.85155
+            // y=0.2433592
+            // x=-4.552626
+            if(transform.position.x < -0.552626 && transform.position.x > -10.552626 && transform.position.z > 23.85155 && transform.position.z <33.85155)
             {
-                testSuper.SetActive(true);
+                test2.SetActive(true);
             }
             else
             {
-                testSuper.SetActive(false);
+                test2.SetActive(false);
             }
         }
 

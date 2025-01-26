@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueManagerLogin : MonoBehaviour {
 
+	public GameObject player;
 	public Text nameText;
 	public Text dialogueText;
 
@@ -13,6 +14,8 @@ public class DialogueManagerLogin : MonoBehaviour {
 	public Animator animatorsuccess;
 
 	public GameObject canvas;
+	 public Camera miniMapCamera; 
+    public Camera fullScreenMapCamera;
 
 	public GameObject test;
 
@@ -97,7 +100,25 @@ public class DialogueManagerLogin : MonoBehaviour {
 
 	public void EndDialogueSuccess()
 	{
+		Vector3 playerPosition = player.transform.position;
 		animator.SetBool("IsOpen", false);
+		 if (playerPosition.x < -0.552626 && playerPosition.x > -10.552626 && playerPosition.z > 23.85155 && playerPosition.z < 33.85155)
+        {
+            if (miniMapCamera.gameObject.activeSelf)
+            {
+                // Switch to fullscreen map
+                miniMapCamera.gameObject.SetActive(false);
+                fullScreenMapCamera.gameObject.SetActive(true);
+				canvas.SetActive(false);
+				return;
+            }
+            else
+            {
+                // Switch back to minimap
+                fullScreenMapCamera.gameObject.SetActive(false);
+                miniMapCamera.gameObject.SetActive(true);
+            }
+        }
 		// dialogueBoxsuccess.SetActive(true);
 		animatorsuccess.SetBool("IsOpen", true);
 	}
