@@ -2,6 +2,10 @@
 ## Demo Video
 https://drive.google.com/file/d/1BGCl-FkEmkiuRQ8PTw5LJEygld6DBg8Q/view?usp=sharing
 ---
+## Build Folder
+https://drive.google.com/drive/folders/1htF3F2B1hW-yXru1HDOrYTD-vXkYYOOM?usp=sharing
+* Download the entire folder and click on FutureFix.exe to run.
+---
 ## Overview
 **API City** is an educational game designed to teach players how API requests (GET, POST, PUT, PATCH, DELETE) work in a real-world simulation. Players will explore a virtual city, complete missions using API calls, and learn about authentication, rate limiting, and error handling.
 
