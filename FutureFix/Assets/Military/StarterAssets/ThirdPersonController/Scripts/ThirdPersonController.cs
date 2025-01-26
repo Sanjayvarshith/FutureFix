@@ -159,6 +159,19 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            checkPosition();
+        }
+        public GameObject test;
+        public void checkPosition()
+        {
+            if (transform.position.x < 130 && transform.position.x>107 && transform.position.z <-7 && transform.position.z > -60)
+            {
+                test.SetActive(true);
+            }
+            else
+            {
+                test.SetActive(false);
+            }
         }
 
         private void LateUpdate()

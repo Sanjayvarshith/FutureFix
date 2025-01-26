@@ -12,23 +12,46 @@ public class DialogueManagerLogin : MonoBehaviour {
 	public Animator animatorfail;
 	public Animator animatorsuccess;
 
+	public GameObject canvas;
+
+	public GameObject test;
+
 	private Queue<string> sentences;
 
 	// Use this for initialization
 	void Start () {
 		sentences = new Queue<string>();
 	}
+	public Dialogue dialogue2;
 
 	public void StartDialogue (Dialogue dialogue)
 	{
 
 		animator.SetBool("IsOpen", true);
+		test.SetActive(false);
 
 		nameText.text = dialogue.name;
 
 		sentences.Clear();
 
 		foreach (string sentence in dialogue.sentences)
+		{
+			sentences.Enqueue(sentence);
+		}
+
+		DisplayNextSentence();
+	}
+
+	public void newDialogue ()
+	{
+		animator.SetBool("IsOpen", true);
+		test.SetActive(false);
+
+		nameText.text = dialogue2.name;
+
+		sentences.Clear();
+
+		foreach (string sentence in dialogue2.sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
@@ -83,12 +106,14 @@ public class DialogueManagerLogin : MonoBehaviour {
 	{
 		animatorfail.SetBool("IsOpen", false);
 		animatorsuccess.SetBool("IsOpen", false);
+		test.SetActive(true);
 	}
 
 	public void Success()
 	{
 		animatorfail.SetBool("IsOpen", false);
 		animatorsuccess.SetBool("IsOpen", false);
+		canvas.SetActive(false);
 	}
 
 }
