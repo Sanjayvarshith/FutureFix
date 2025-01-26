@@ -27,7 +27,7 @@ public class WeatherManager : MonoBehaviour
     public Button continueButton; // Button that continues to the weather panel
     public GameObject weatherPanel; // The panel that shows the weather data
 
-    private string apiKey = "0995783e5bb11fde67aa050f83ac765c";  // Replace with actual API key
+    private string apiKey = "64efa229c96402bf8a9acd10a4b62c09";  // Replace with actual API key
     private string location = "Tirupati";    // Replace with desired location
     private string apiUrl = "https://api.weatherstack.com/current?access_key={0}&query={1}";
 
@@ -36,7 +36,7 @@ public class WeatherManager : MonoBehaviour
     void Start()
     {
         // Fetch weather data
-        GetWeatherData();
+        // GetWeatherData();
         
         // Hide weather panel initially
         weatherPanel.SetActive(false);
@@ -92,6 +92,7 @@ public class WeatherManager : MonoBehaviour
     // Function to start the weather dialogue display
     public void StartWeatherDialogue()
     {
+        // GetWeatherData();
         StartCoroutine(ShowWeatherDialogue());
     }
 

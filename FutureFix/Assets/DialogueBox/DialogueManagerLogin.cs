@@ -19,6 +19,7 @@ public class DialogueManagerLogin : MonoBehaviour {
     public Camera fullScreenMapCamera;
 
 	public GameObject test;
+	public GameObject Garbage;
 
 	private Queue<string> sentences;
 
@@ -146,6 +147,10 @@ public class DialogueManagerLogin : MonoBehaviour {
 		// dialogueBoxsuccess.SetActive(true);
 		animatorsuccess.SetBool("IsOpen", true);
 	}
+	 if (playerPosition.x < -45 && playerPosition.x > -51 && playerPosition.z < -110 && playerPosition.z > -120)
+            {
+                Garbage.SetActive(false);
+            }
 	animatorsuccess.SetBool("IsOpen", true);
 	// dialogueBoxsuccess.SetActive(true);
 	}
