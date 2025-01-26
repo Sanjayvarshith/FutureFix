@@ -164,6 +164,8 @@ namespace StarterAssets
         public GameObject test;
         public GameObject test2;
          public GameObject test4;
+         public GameObject testGarbage;
+        public GameObject testSuper;
         public void checkPosition()
         {
             if (transform.position.x < 130 && transform.position.x>107 && transform.position.z <-7 && transform.position.z > -60)
@@ -186,13 +188,29 @@ namespace StarterAssets
                 test2.SetActive(false);
             }
             // 54.29271 y:0.08999979 z:-3.960452 
-             if(transform.position.x < 59.29271 && transform.position.x > 50.29271 && transform.position.z < -0.960452  && transform.position.z >-6.960452 )
+             if(transform.position.x < 51.5 && transform.position.x > 45.29271 && transform.position.z < 0.060452  && transform.position.z >-6.960452 )
             {
                 test4.SetActive(true);
             }
             else
             {
                 test4.SetActive(false);
+            }
+            if (transform.position.x < -45 && transform.position.x > -51 && transform.position.z < -110 && transform.position.z > -120)
+            {
+                testGarbage.SetActive(true);
+            }
+            else
+            {
+                testGarbage.SetActive(false);
+            }
+            if (transform.position.x < -105 && transform.position.x > -118 && transform.position.z < 15 && transform.position.z > 7)
+            {
+                testSuper.SetActive(true);
+            }
+            else
+            {
+                testSuper.SetActive(false);
             }
         }
 
